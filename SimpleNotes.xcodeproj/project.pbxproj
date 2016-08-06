@@ -15,6 +15,8 @@
 		C8D225411D540669007811DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8D2253F1D540669007811DC /* LaunchScreen.storyboard */; };
 		C8D2254C1D540669007811DC /* SimpleNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D2254B1D540669007811DC /* SimpleNotesTests.swift */; };
 		C8D225571D540669007811DC /* SimpleNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D225561D540669007811DC /* SimpleNotesUITests.swift */; };
+		C8D225681D5501A4007811DC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D225671D5501A4007811DC /* SettingsViewController.swift */; };
+		C8D225741D554843007811DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D225731D554843007811DC /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		C8D225521D540669007811DC /* SimpleNotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleNotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D225561D540669007811DC /* SimpleNotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleNotesUITests.swift; sourceTree = "<group>"; };
 		C8D225581D540669007811DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8D225671D5501A4007811DC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C8D225731D554843007811DC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 				C8D2253A1D540669007811DC /* Main.storyboard */,
 				C8D2253D1D540669007811DC /* Assets.xcassets */,
 				C8D2253F1D540669007811DC /* LaunchScreen.storyboard */,
+				C8D225731D554843007811DC /* ViewController.swift */,
+				C8D225671D5501A4007811DC /* SettingsViewController.swift */,
 				C8D225421D540669007811DC /* Info.plist */,
 			);
 			path = SimpleNotes;
@@ -259,9 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8D225741D554843007811DC /* ViewController.swift in Sources */,
 				C8D225391D540669007811DC /* DetailViewController.swift in Sources */,
 				C8D225371D540669007811DC /* MasterViewController.swift in Sources */,
 				C8D225351D540669007811DC /* AppDelegate.swift in Sources */,
+				C8D225681D5501A4007811DC /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +496,7 @@
 				C8D2255D1D540669007811DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C8D2255E1D540669007811DC /* Build configuration list for PBXNativeTarget "SimpleNotesTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +505,7 @@
 				C8D225601D540669007811DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C8D225611D540669007811DC /* Build configuration list for PBXNativeTarget "SimpleNotesUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +514,7 @@
 				C8D225631D540669007811DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
