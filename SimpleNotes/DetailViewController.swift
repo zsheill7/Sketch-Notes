@@ -19,6 +19,8 @@ extension DetailViewController: SettingsViewControllerDelegate {
 }
 
 class DetailViewController: UIViewController, UITextViewDelegate {
+    
+    var imageChanged = false
 
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
@@ -76,6 +78,11 @@ class DetailViewController: UIViewController, UITextViewDelegate {
         detailDescriptionLabel.becomeFirstResponder()
         detailDescriptionLabel.delegate = self
         self.configureView()
+        
+        detailDescriptionLabel.userInteractionEnabled = false
+        
+        
+        self.view.bringSubviewToFront(detailDescriptionLabel)
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,9 +97,13 @@ class DetailViewController: UIViewController, UITextViewDelegate {
             return
         }
         objects[currentIndex] = detailDescriptionLabel.text
-        if detailDescriptionLabel.text == "" {
+        if let endImage = mainImageView.image{
+            images[currentIndex] = endImage
+        }
+        if detailDescriptionLabel.text == "" && imageChanged == false {
             objects[currentIndex] = BLANK_NOTE
         }
+        
         saveAndUpdate()
     }
     
@@ -157,17 +168,21 @@ class DetailViewController: UIViewController, UITextViewDelegate {
         }
         
         // Merge tempImageView into mainImageView
-        UIGraphicsBeginImageContext(mainImageView.frame.size)
-        mainImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: CGBlendMode.Normal, alpha: 1.0)
-        tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: CGBlendMode.Normal, alpha: opacity)
+        UIGraphicsBeginImageContext(tempImageView.frame.size)
+        mainImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: tempImageView.frame.size.width, height: tempImageView.frame.size.height), blendMode: CGBlendMode.Normal, alpha: 1.0)
+        tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: tempImageView.frame.size.width, height: tempImageView.frame.size.height), blendMode: CGBlendMode.Normal, alpha: opacity)
         mainImageView.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         tempImageView.image = nil
+        
+        imageChanged = true
     }
     
     @IBAction func reset(sender: AnyObject) {
         mainImageView.image = nil
+        
+        imageChanged = false
     }
     
     @IBAction func share(sender: AnyObject) {

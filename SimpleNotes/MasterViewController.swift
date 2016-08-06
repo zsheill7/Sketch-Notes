@@ -9,6 +9,7 @@
 import UIKit
 
 var objects:[String] = [String]()
+var images:[UIImage] = [UIImage]()
 var currentIndex:Int = 0
 var masterView:MasterViewController?
 var detailViewController:DetailViewController?
@@ -135,6 +136,7 @@ class MasterViewController: UITableViewController {
     }
     func save() {
         NSUserDefaults.standardUserDefaults().setObject(objects, forKey: kNotes)
+        /*let imageData = UIImageJPEGRepresentation(<#T##image: UIImage##UIImage#>, <#T##compressionQuality: CGFloat##CGFloat#>)*/
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     

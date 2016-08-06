@@ -142,7 +142,7 @@ class ViewController: UIViewController {
     }
     
     (red, green, blue) = colors[index]
-    
+    print("pressed")
     if index == colors.count - 1 {
         opacity = 1.0
     }
