@@ -17,6 +17,7 @@
 		C8D225571D540669007811DC /* SimpleNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D225561D540669007811DC /* SimpleNotesUITests.swift */; };
 		C8D225681D5501A4007811DC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D225671D5501A4007811DC /* SettingsViewController.swift */; };
 		C8D225741D554843007811DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D225731D554843007811DC /* ViewController.swift */; };
+		C8D225761D56AA37007811DC /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D225751D56AA37007811DC /* PopupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		C8D225581D540669007811DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8D225671D5501A4007811DC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C8D225731D554843007811DC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C8D225751D56AA37007811DC /* PopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				C8D225731D554843007811DC /* ViewController.swift */,
 				C8D225671D5501A4007811DC /* SettingsViewController.swift */,
 				C8D225421D540669007811DC /* Info.plist */,
+				C8D225751D56AA37007811DC /* PopupViewController.swift */,
 			);
 			path = SimpleNotes;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				C8D225371D540669007811DC /* MasterViewController.swift in Sources */,
 				C8D225351D540669007811DC /* AppDelegate.swift in Sources */,
 				C8D225681D5501A4007811DC /* SettingsViewController.swift in Sources */,
+				C8D225761D56AA37007811DC /* PopupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

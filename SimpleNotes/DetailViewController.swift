@@ -18,10 +18,19 @@ extension DetailViewController: SettingsViewControllerDelegate {
     }
 }
 
-class DetailViewController: UIViewController, UITextViewDelegate {
+var settingsSelected = false
+var resetSelected = false
+var textViewSelected = false
+var shareSelected = false
+
+class DetailViewController: UIViewController, UITextViewDelegate, UIPopoverPresentationControllerDelegate{
+    
+    
+ 
     
     var imageChanged = false
-
+    
+    
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
     
@@ -59,9 +68,21 @@ class DetailViewController: UIViewController, UITextViewDelegate {
 
     func configureView() {
         // Update the user interface for the detail item.
+        
+        
+        
         if objects.count == 0 {
             return
         }
+        
+       if images.count == 0 {
+            self.mainImageView.image = nil
+       } else if let currentImage = self.mainImageView {
+        currentImage.image = images[currentIndex]
+        }
+        
+        
+        print(objects)
         if let label = self.detailDescriptionLabel {
             label.text = objects[currentIndex]
             if label.text == BLANK_NOTE {
@@ -69,11 +90,16 @@ class DetailViewController: UIViewController, UITextViewDelegate {
             }
         }
         
+        
+        
     }
 
     override func viewDidLoad() {
+        print("viewDidLoad")
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
         detailViewController = self
         detailDescriptionLabel.becomeFirstResponder()
         detailDescriptionLabel.delegate = self
@@ -83,6 +109,19 @@ class DetailViewController: UIViewController, UITextViewDelegate {
         
         
         self.view.bringSubviewToFront(detailDescriptionLabel)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        configureView()
+        print("view did appear")
+        if settingsSelected == true {
+            settingsSelected = false
+            self.performSegueWithIdentifier("goToSettings", sender: self)
+        }
+        else if shareSelected == true {
+            settingsSelected = false
+            share()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,15 +133,23 @@ class DetailViewController: UIViewController, UITextViewDelegate {
         super.viewWillDisappear(animated)
         
         if objects.count == 0 {
-            return
+            objects.append("")
+        } else {
+            objects[currentIndex] = detailDescriptionLabel.text
         }
-        objects[currentIndex] = detailDescriptionLabel.text
-        if let endImage = mainImageView.image{
-            images[currentIndex] = endImage
-        }
+        
         if detailDescriptionLabel.text == "" && imageChanged == false {
             objects[currentIndex] = BLANK_NOTE
         }
+        print(currentIndex)
+       
+        if images.count == 0 {
+            return 
+        }
+        if let endImage = mainImageView.image{
+            images[currentIndex] = endImage
+        }
+        
         
         saveAndUpdate()
     }
@@ -185,6 +232,13 @@ class DetailViewController: UIViewController, UITextViewDelegate {
         imageChanged = false
     }
     
+    func reset() {
+    mainImageView.image = nil
+    
+    imageChanged = false
+    }
+
+    
     @IBAction func share(sender: AnyObject) {
         UIGraphicsBeginImageContext(mainImageView.bounds.size)
         mainImageView.image?.drawInRect(CGRect(x: 0, y: 0,
@@ -195,6 +249,18 @@ class DetailViewController: UIViewController, UITextViewDelegate {
         let activity = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         presentViewController(activity, animated: true, completion: nil)
     }
+    
+    func share() {
+        UIGraphicsBeginImageContext(mainImageView.bounds.size)
+        mainImageView.image?.drawInRect(CGRect(x: 0, y: 0,
+            width:  mainImageView.frame.size.width, height: mainImageView.frame.size.height))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let activity = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        presentViewController(activity, animated: true, completion: nil)
+    }
+
     
     @IBAction func pencilPressed(sender: AnyObject) {
         
@@ -210,15 +276,53 @@ class DetailViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let settingsViewController = segue.destinationViewController as! SettingsViewController
-        settingsViewController.delegate = self
-        settingsViewController.brush = brushWidth
-        settingsViewController.opacity = opacity
+    func settings() {
+        print("here@settings")
+
+         //self.performSegueWithIdentifier("goToSettings", sender: self)
+        //let settingsVC = storyboard?.instantiateViewControllerWithIdentifier("settingsVC")// as! SettingsViewController
+        //self.navigationController?.setViewControllers([settingsVC!], animated: false)
+    }
+    
+    
+    func createPicker() {
         
-        settingsViewController.red = red
-        settingsViewController.green = green
-        settingsViewController.blue = blue
+    }
+    
+    @IBAction func menuButtonPressed(sender: AnyObject) {
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "popoverSegue" {
+            let popupView = segue.destinationViewController as! PopupViewController
+            if let popup = popupView.popoverPresentationController
+            {
+                popup.delegate = self
+                
+            }
+            //popupView.delegate = self
+            
+        } else {
+            let settingsViewController = segue.destinationViewController as! SettingsViewController
+            settingsViewController.delegate = self
+            settingsViewController.brush = brushWidth
+            settingsViewController.opacity = opacity
+            
+            settingsViewController.red = red
+            settingsViewController.green = green
+            settingsViewController.blue = blue
+        }
+    }
+    
+    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController){
+        
+        print("@popoverpresentation")
+        
+        
+        
+    }
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle
+    {
+        return UIModalPresentationStyle.None
     }
     
     

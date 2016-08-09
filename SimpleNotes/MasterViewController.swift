@@ -41,7 +41,7 @@ class MasterViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
-   /* override func viewDidAppear(animated: Bool) {
+   /*override func viewDidAppear(animated: Bool) {
         
         if objects.count == 0 {
             insertNewObject(self)
@@ -136,7 +136,7 @@ class MasterViewController: UITableViewController {
     }
     func save() {
         NSUserDefaults.standardUserDefaults().setObject(objects, forKey: kNotes)
-        /*let imageData = UIImageJPEGRepresentation(<#T##image: UIImage##UIImage#>, <#T##compressionQuality: CGFloat##CGFloat#>)*/
+        //let imageData = UIImageJPEGRepresentation(<#T##image: UIImage##UIImage#>, <#T##compressionQuality: CGFloat##CGFloat#>)
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
