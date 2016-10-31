@@ -78,7 +78,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UIPopoverPrese
        if images.count == 0 {
             self.mainImageView.image = nil
        } else if let currentImage = self.mainImageView {
-        currentImage.image = images[currentIndex]
+            currentImage.image = images[currentIndex]
         }
         
         
@@ -165,6 +165,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UIPopoverPrese
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
         swiped = false
         if let touch = touches.first  {
             lastPoint = touch.locationInView(self.view)
@@ -227,6 +228,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UIPopoverPrese
     }
     
     @IBAction func reset(sender: AnyObject) {
+        
         mainImageView.image = nil
         
         imageChanged = false
@@ -326,6 +328,11 @@ class DetailViewController: UIViewController, UITextViewDelegate, UIPopoverPrese
     }
     
     
+   /* func textViewShouldReturn(textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return
+    }*/
+   
     
     
 
