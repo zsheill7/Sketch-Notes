@@ -38,6 +38,7 @@ class MasterViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
         save()
+        
         super.viewWillAppear(animated)
     }
 
@@ -128,7 +129,7 @@ class MasterViewController: UITableViewController {
         save()
     }
     
-    override func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath?) {
         detailViewController?.detailDescriptionLabel.editable = false
         detailViewController?.detailDescriptionLabel.text = ""
 

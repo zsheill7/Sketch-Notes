@@ -36,7 +36,7 @@ class PopupViewController: UIViewController, UIPopoverControllerDelegate {
     }
     @IBAction func erase(sender: AnyObject?) {
         resetSelected = true
-        self.performSegueWithIdentifier("goBack", sender: self)
+        self.dismissViewControllerAnimated(true, completion: nil)
 
     }
     

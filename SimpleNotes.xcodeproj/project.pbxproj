@@ -105,11 +105,11 @@
 		C8D225331D540669007811DC /* SimpleNotes */ = {
 			isa = PBXGroup;
 			children = (
+				C8D2253D1D540669007811DC /* Assets.xcassets */,
 				C8D225341D540669007811DC /* AppDelegate.swift */,
 				C8D225361D540669007811DC /* MasterViewController.swift */,
 				C8D225381D540669007811DC /* DetailViewController.swift */,
 				C8D2253A1D540669007811DC /* Main.storyboard */,
-				C8D2253D1D540669007811DC /* Assets.xcassets */,
 				C8D2253F1D540669007811DC /* LaunchScreen.storyboard */,
 				C8D225731D554843007811DC /* ViewController.swift */,
 				C8D225671D5501A4007811DC /* SettingsViewController.swift */,
@@ -205,13 +205,16 @@
 				TargetAttributes = {
 					C8D225301D540669007811DC = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 					};
 					C8D225461D540669007811DC = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = C8D225301D540669007811DC;
 					};
 					C8D225511D540669007811DC = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = C8D225301D540669007811DC;
 					};
 				};
@@ -421,6 +424,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zoesheill.SimpleNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -432,6 +436,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zoesheill.SimpleNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -443,6 +448,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zoesheill.SimpleNotesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleNotes.app/SimpleNotes";
 			};
 			name = Debug;
@@ -455,6 +461,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zoesheill.SimpleNotesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleNotes.app/SimpleNotes";
 			};
 			name = Release;
@@ -466,6 +473,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zoesheill.SimpleNotesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = SimpleNotes;
 			};
 			name = Debug;
@@ -477,6 +485,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zoesheill.SimpleNotesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_TARGET_NAME = SimpleNotes;
 			};
 			name = Release;

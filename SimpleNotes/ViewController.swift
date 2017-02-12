@@ -70,8 +70,8 @@ class ViewController: UIViewController {
         let context = UIGraphicsGetCurrentContext()
         tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
         
-        CGContextMoveToPoint(context, fromPoint.x, fromPoint.y)
-        CGContextAddLineToPoint(context, toPoint.x, toPoint.y)
+        CGContextMoveToPoint(context!, fromPoint.x, fromPoint.y)
+        CGContextAddLineToPoint(context!, toPoint.x, toPoint.y)
         /*CGPoint dir = ccpSub(fromPoint, toPoint);
         CGPoint perpendicular = ccpNormalize(ccpPerp(dir));
         CGPoint A = ccpAdd(prevPoint, ccpMult(perpendicular, prevValue / 2));
@@ -80,12 +80,12 @@ class ViewController: UIViewController {
         CGPoint D = ccpSub(curPoint, ccpMult(perpendicular, curValue / 2))*/
         
         
-        CGContextSetLineCap(context, CGLineCap.Round)
-        CGContextSetLineWidth(context, brushWidth)
-        CGContextSetRGBStrokeColor(context, red, green, blue, 1.0)
-        CGContextSetBlendMode(context, CGBlendMode.Normal)
+        CGContextSetLineCap(context!, CGLineCap.Round)
+        CGContextSetLineWidth(context!, brushWidth)
+        CGContextSetRGBStrokeColor(context!, red, green, blue, 1.0)
+        CGContextSetBlendMode(context!, CGBlendMode.Normal)
         
-        CGContextStrokePath(context)
+        CGContextStrokePath(context!)
         
         tempImageView.image = UIGraphicsGetImageFromCurrentImageContext()
         tempImageView.alpha = opacity
@@ -130,7 +130,7 @@ class ViewController: UIViewController {
     let image = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     
-    let activity = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+    let activity = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
     presentViewController(activity, animated: true, completion: nil)
   }
   

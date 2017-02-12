@@ -97,6 +97,11 @@ class DetailViewController: UIViewController, UITextViewDelegate, UIPopoverPrese
     override func viewDidLoad() {
         print("viewDidLoad")
         super.viewDidLoad()
+        print(resetSelected)
+        if resetSelected == true {
+            resetSelected = false
+            reset()
+        }
         // Do any additional setup after loading the view, typically from a nib.
         
         
@@ -121,6 +126,12 @@ class DetailViewController: UIViewController, UITextViewDelegate, UIPopoverPrese
         else if shareSelected == true {
             settingsSelected = false
             share()
+        }
+    }
+    override func viewWillAppear(animated: Bool) {
+        if resetSelected == true {
+            resetSelected = false
+            reset()
         }
     }
 
@@ -165,6 +176,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UIPopoverPrese
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.dismissViewControllerAnimated(true, completion: nil)
         self.view.endEditing(true)
         swiped = false
         if let touch = touches.first  {
@@ -176,8 +188,8 @@ class DetailViewController: UIViewController, UITextViewDelegate, UIPopoverPrese
         let context = UIGraphicsGetCurrentContext()
         tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
         
-        CGContextMoveToPoint(context, fromPoint.x, fromPoint.y)
-        CGContextAddLineToPoint(context, toPoint.x, toPoint.y)
+        CGContextMoveToPoint(context!, fromPoint.x, fromPoint.y)
+        CGContextAddLineToPoint(context!, toPoint.x, toPoint.y)
         /*CGPoint dir = ccpSub(fromPoint, toPoint);
          CGPoint perpendicular = ccpNormalize(ccpPerp(dir));
          CGPoint A = ccpAdd(prevPoint, ccpMult(perpendicular, prevValue / 2));
@@ -186,12 +198,12 @@ class DetailViewController: UIViewController, UITextViewDelegate, UIPopoverPrese
          CGPoint D = ccpSub(curPoint, ccpMult(perpendicular, curValue / 2))*/
         
         
-        CGContextSetLineCap(context, CGLineCap.Round)
-        CGContextSetLineWidth(context, brushWidth)
-        CGContextSetRGBStrokeColor(context, red, green, blue, 1.0)
-        CGContextSetBlendMode(context, CGBlendMode.Normal)
+        CGContextSetLineCap(context!, CGLineCap.Round)
+        CGContextSetLineWidth(context!, brushWidth)
+        CGContextSetRGBStrokeColor(context!, red, green, blue, 1.0)
+        CGContextSetBlendMode(context!, CGBlendMode.Normal)
         
-        CGContextStrokePath(context)
+        CGContextStrokePath(context!)
         
         tempImageView.image = UIGraphicsGetImageFromCurrentImageContext()
         tempImageView.alpha = opacity
@@ -248,7 +260,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UIPopoverPrese
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        let activity = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        let activity = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
         presentViewController(activity, animated: true, completion: nil)
     }
     
@@ -259,7 +271,7 @@ class DetailViewController: UIViewController, UITextViewDelegate, UIPopoverPrese
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        let activity = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        let activity = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
         presentViewController(activity, animated: true, completion: nil)
     }
 

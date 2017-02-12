@@ -46,7 +46,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgo-u7-raO">
-                                        <rect key="frame" x="20" y="28" width="40" height="30"/>
+                                        <rect key="frame" x="20" y="71" width="40" height="30"/>
                                         <state key="normal" title="Reset">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -251,7 +251,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vmZ-bH-DTy">
+                                    <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vmZ-bH-DTy">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <items>
                                             <navigationItem title="Note" id="eo9-SJ-d0l">
@@ -277,6 +277,7 @@
                                     <constraint firstItem="jnp-uS-SYA" firstAttribute="leading" secondItem="Qz9-L0-E8w" secondAttribute="trailing" id="5vj-9B-0z4"/>
                                     <constraint firstItem="DYe-Us-kTA" firstAttribute="leading" secondItem="xUr-Bg-Rtv" secondAttribute="trailing" id="7za-aj-zf4"/>
                                     <constraint firstAttribute="bottom" secondItem="pyo-Xx-Wh9" secondAttribute="bottom" id="8F0-nv-f9X"/>
+                                    <constraint firstItem="bgo-u7-raO" firstAttribute="top" secondItem="vmZ-bH-DTy" secondAttribute="bottom" constant="27" id="A6l-wq-pIy"/>
                                     <constraint firstItem="uVf-n0-fvd" firstAttribute="leading" secondItem="kHH-Wg-4gJ" secondAttribute="leadingMargin" constant="-8" id="A8L-uf-O4v"/>
                                     <constraint firstItem="bgo-u7-raO" firstAttribute="leading" secondItem="kHH-Wg-4gJ" secondAttribute="leading" constant="20" symbolic="YES" id="Aab-34-Dmi"/>
                                     <constraint firstItem="4FJ-2T-lz3" firstAttribute="centerX" secondItem="kHH-Wg-4gJ" secondAttribute="centerX" id="AcJ-MT-IHv"/>
